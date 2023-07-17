@@ -1,0 +1,272 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--"http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.bsoft.system.mapper.YyhClientMapper">-->
+
+<!--    <resultMap type="YyhClient" id="YyhClientResult">-->
+<!--        <result property="clientid"    column="CLIENTID"    />-->
+<!--        <result property="clientDatabaseUrl"    column="CLIENT_DATABASE_URL"    />-->
+<!--        <result property="clientDatabaseUsername"    column="CLIENT_DATABASE_USERNAME"    />-->
+<!--        <result property="clientDatabasePassword"    column="CLIENT_DATABASE_PASSWORD"    />-->
+<!--        <result property="clientRemark"    column="CLIENT_REMARK"    />-->
+<!--        <result property="sourceorgan"    column="SOURCEORGAN"    />-->
+<!--        <result property="sourcedomain"    column="SOURCEDOMAIN"    />-->
+<!--        <result property="targetorgan"    column="TARGETORGAN"    />-->
+<!--        <result property="targetdomain"    column="TARGETDOMAIN"    />-->
+<!--        <result property="pcrwhhqw"    column="PCRWHHQW"    />-->
+<!--        <result property="pcrwhhqwServicecode"    column="PCRWHHQW_SERVICECODE"    />-->
+<!--        <result property="dcrwhw"    column="DCRWHW"    />-->
+<!--        <result property="dcrwhwServicecode"    column="DCRWHW_SERVICECODE"    />-->
+<!--        <result property="sjscw"    column="SJSCW"    />-->
+<!--        <result property="sjscwServicecode"    column="SJSCW_SERVICECODE"    />-->
+<!--    </resultMap>-->
+
+<!--    <sql id="selectYyhClientVo">-->
+<!--        select CLIENTID, CLIENT_DATABASE_URL, CLIENT_DATABASE_USERNAME, CLIENT_DATABASE_PASSWORD, CLIENT_REMARK, SOURCEORGAN, SOURCEDOMAIN, TARGETORGAN, TARGETDOMAIN, PCRWHHQW, PCRWHHQW_SERVICECODE, DCRWHW, DCRWHW_SERVICECODE, SJSCW, SJSCW_SERVICECODE from YYH_CLIENT-->
+<!--    </sql>-->
+
+<!--    <select id="selectYyhClientList" parameterType="YyhClient" resultMap="YyhClientResult">-->
+<!--        <include refid="selectYyhClientVo"/>-->
+<!--        <where>-->
+<!--            <if test="clientDatabaseUrl != null  and clientDatabaseUrl != ''"> and CLIENT_DATABASE_URL = #{clientDatabaseUrl}</if>-->
+<!--            <if test="clientDatabaseUsername != null  and clientDatabaseUsername != ''"> and CLIENT_DATABASE_USERNAME like concat('%', #{clientDatabaseUsername}, '%')</if>-->
+<!--            <if test="clientDatabasePassword != null  and clientDatabasePassword != ''"> and CLIENT_DATABASE_PASSWORD = #{clientDatabasePassword}</if>-->
+<!--            <if test="clientRemark != null  and clientRemark != ''"> and CLIENT_REMARK = #{clientRemark}</if>-->
+<!--            <if test="sourceorgan != null  and sourceorgan != ''"> and SOURCEORGAN = #{sourceorgan}</if>-->
+<!--            <if test="sourcedomain != null  and sourcedomain != ''"> and SOURCEDOMAIN = #{sourcedomain}</if>-->
+<!--            <if test="targetorgan != null  and targetorgan != ''"> and TARGETORGAN = #{targetorgan}</if>-->
+<!--            <if test="targetdomain != null  and targetdomain != ''"> and TARGETDOMAIN = #{targetdomain}</if>-->
+<!--            <if test="pcrwhhqw != null  and pcrwhhqw != ''"> and PCRWHHQW = #{pcrwhhqw}</if>-->
+<!--            <if test="pcrwhhqwServicecode != null  and pcrwhhqwServicecode != ''"> and PCRWHHQW_SERVICECODE = #{pcrwhhqwServicecode}</if>-->
+<!--            <if test="dcrwhw != null  and dcrwhw != ''"> and DCRWHW = #{dcrwhw}</if>-->
+<!--            <if test="dcrwhwServicecode != null  and dcrwhwServicecode != ''"> and DCRWHW_SERVICECODE = #{dcrwhwServicecode}</if>-->
+<!--            <if test="sjscw != null  and sjscw != ''"> and SJSCW = #{sjscw}</if>-->
+<!--            <if test="sjscwServicecode != null  and sjscwServicecode != ''"> and SJSCW_SERVICECODE = #{sjscwServicecode}</if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    <select id="selectYyhClientByClientid" parameterType="Long" resultMap="YyhClientResult">-->
+<!--        <include refid="selectYyhClientVo"/>-->
+<!--        where CLIENTID = #{clientid}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 搜索分页列表数据&ndash;&gt;-->
+<!--    <select id="dynamicSqlList" resultType="java.util.Map">-->
+<!--        select * from ( ${map.sql} ) a-->
+<!--        <where>-->
+<!--            <if test="map.begindate!=null and map.enddate!=null">-->
+<!--                and a.zjrq &gt;= #{map.begindate} and a.zjrq &lt; #{map.enddate}-->
+<!--            </if>-->
+<!--            <if test="map.scbz!=null and map.scbz != '' ">-->
+<!--                and a.scbz = #{map.scbz}-->
+<!--            </if>-->
+<!--&lt;!&ndash;            <if test="map.scbz == null">&ndash;&gt;-->
+<!--&lt;!&ndash;                and (a.scbz = 0 or a.scbz is null)&ndash;&gt;-->
+<!--&lt;!&ndash;            </if>&ndash;&gt;-->
+<!--            <if test="map.brxm != null and map.brxm != '' ">-->
+<!--                and a.brxm like '%'||#{map.brxm}||'%'-->
+<!--            </if>-->
+<!--            <if test="map.tjbh != null and map.tjbh !='' ">-->
+<!--                and a.tjbh = #{map.tjbh}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 查询待上传的pdf记录&ndash;&gt;-->
+<!--    <select id="selectTJPDF" resultType="TjPDFVo">-->
+<!--        select WS02_01_039_001 as WS02_01_039_001,-->
+<!--                 WS02_01_906_01  as WS02_01_906_01,-->
+<!--                 WS01_00_018_01 as WS01_00_018_01,-->
+<!--                 YYHJGID as WS99_99_034_46,-->
+<!--                WS04_50_133_01 as WS04_50_133_01,-->
+<!--                 YYHJGID as WS08_10_052_28,-->
+<!--                 YYHJGMC as WS08_10_052_29,-->
+<!--                YYHJGID as WS08_10_052_03,-->
+<!--                 YYHJGMC as CT08_10_052_03,-->
+<!--                 WS99_99_900_96 as WS99_99_900_96,-->
+<!--                CT99_99_900_96 as CT99_99_900_96,-->
+<!--                 WS99_99_900_97 as WS99_99_900_97,-->
+<!--                 YYHJGID as WS08_10_912_06,-->
+<!--                 YYHJGMC as CT08_10_912_06,-->
+<!--                WS01_00_018_01 as WS99_00_930_08,-->
+<!--                BASE64 as BASE64-->
+<!--        from tj_pdfbg_info a ,CRB_JGXX b-->
+<!--        where  b.jgid=a.ws08_10_912_06-->
+<!--        &#45;&#45; and (a.scbz = 0 or a.scbz is null)-->
+<!--        and BASE64 is not null-->
+<!--        <if test="map.tjbh != null and map.tjbh != '' ">-->
+<!--            and a.WS99_00_930_08 = #{map.tjbh}-->
+<!--        </if>-->
+<!--        <if test="map.begindate!=null and map.enddate!=null">-->
+<!--            and a.zjrq &gt;= #{map.begindate,jdbcType=DATE}-->
+<!--            and a.zjrq &lt; #{map.enddate,jdbcType=DATE}-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;查询上传基本入参信息&ndash;&gt;-->
+<!--    <select id="getYYHBaseInfo" resultType="java.util.Map">-->
+<!--        select yyhdzip as yyhdzip,sourceorgan as sourceorgan,sourcedomain as sourcedomain,-->
+<!--        targetorgan as targetorgan,targetdomain as targetdomain from crb_yyhdz-->
+<!--    	where ptnbdm = #{laqtjpdf}-->
+<!--    </select>-->
+
+<!--    <select id="selectTjjlList" resultType="java.util.Map">-->
+<!--        select WS08_10_052_18||'@'||WS01_00_018_01||'@'||WS01_00_008_01 as upprikey,'' as SERIALNUM_ID,''-->
+<!--        as TASK_ID,'' as BATCH_NUM,'' as LOCAL_ID,'' as BUSINESS_ID,'' as BASIC_ACTIVE_ID,'' as DATAGENERATE_DATE,''-->
+<!--        as ORGANIZATION_CODE,'' as ORGANIZATION_NAME,'' as DOMAIN_CODE,'' as CREATE_DATE,'' as UPDATE_DATE,'' as ARCHIVE_DATE,'' as RECORD_IDEN,WS02_01_039_001 ,WS02_01_040_01 ,CT02_01_040_01 ,WS02_01_018_01 ,CT02_01_018_01 ,WS02_01_005_01_01 ,WS02_01_031_01 ,CT02_01_031_01 ,WS02_01_030_01 ,WS02_01_026_01 ,WS01_00_009_01 ,WS01_00_021_01 ,WS99_99_903_58 ,WS01_00_018_01 ,WS99_99_999_12 ,WS01_00_008_01 ,WS06_00_964_01 ,WS02_01_039_031 ,WS04_10_905_01 ,d.hzsjgdm as WS08_10_052_18 ,d.hzsjgmc as CT08_10_052_18 ,WS02_01_010_01 ,WS99_99_999_10 ,CT99_99_999_01 ,WS08_10_007_01 ,WS99_99_999_11 ,WS06_00_926_01 ,WS99_99_241_654 ,WS99_99_241_655 ,WS99_99_241_656 ,WS99_99_241_658 ,WS06_00_901_01,WS99_99_241_659 ,case YYHUPFLAG when 1 then '1' else '0' end as YYHUPFLAG,zfbz ,ywsj-->
+
+<!--        from TJ_BGJL_1 a,SYS_Organization d-->
+<!--        where 1 = 1 and a.WS08_10_052_18=d.organ_code-->
+<!--        and WS08_10_052_18 is not null-->
+<!--        and WS01_00_018_01 is not null-->
+<!--        and WS01_00_008_01 is not null-->
+<!--        &lt;!&ndash;<where>&ndash;&gt;-->
+<!--        <if test="map.begindate!=null and map.enddate!=null">-->
+<!--            and a.ywsj >= #{map.begindate} and a.ywsj &lt; #{map.enddate}-->
+<!--        </if>-->
+<!--        <if test="map.yyhupflag!=null and map.yyhupflag != '' ">-->
+<!--            and a.yyhupflag = #{map.yyhupflag}-->
+<!--        </if>-->
+
+<!--        <if test="map.brxm != null and map.brxm != '' ">-->
+<!--            and a.ws02_01_039_001  =#{map.brxm}-->
+<!--        </if>-->
+<!--        <if test="map.tjbh != null and map.tjbh !='' ">-->
+<!--            and a.ws01_00_018_01 = #{map.tjbh}-->
+<!--        </if>-->
+<!--        <if test="map.sfzh!=null and map.sfzh!=''">-->
+<!--            and ws02_01_030_01 = #{map.sfzh}-->
+<!--        </if>-->
+<!--        <if test="map.yyh!=null and map.yyh!=''">-->
+<!--            and ws99_99_241_659 = #{map.yyh}-->
+<!--        </if>-->
+<!--        <if test="map.orgCode != null and map.orgCode != '' ">-->
+<!--            and a.WS08_10_052_18 =  #{map.orgCode}-->
+<!--        </if>-->
+<!--        &lt;!&ndash;</where>&ndash;&gt;-->
+<!--        <if test="map.limit != null ">-->
+<!--            LIMIT #{map.limit}-->
+<!--        </if>-->
+<!--        <if test="map.offset != null ">-->
+<!--            OFFSET #{map.offset}-->
+<!--        </if>-->
+<!--    </select>-->
+
+<!--    <select id="getYyhUpconfig" resultType="com.bsoft.system.domain.yyh.YyhDataConfig">-->
+<!--        select * from yyh_data_zfconfig-->
+<!--        where sfqy = #{map.sfqy}-->
+<!--        and setcode = #{map.setCode}-->
+<!--    </select>-->
+
+<!--    <select id="selectYyhUploadList" resultType="java.util.Map">-->
+<!--        ${yyhUpsql}-->
+<!--        &lt;!&ndash;<where>&ndash;&gt;-->
+<!--        <if test="map.begindate!=null and map.enddate!=null">-->
+<!--            and ywsj1 &gt;= #{map.begindate} and ywsj1 &lt; #{map.enddate}-->
+<!--        </if>-->
+<!--        <if test="map.tjbh!=null and map.tjbh!=null">-->
+<!--            and ws99_99_999_11 = #{map.tjbh}-->
+<!--        </if>-->
+<!--        <if test="map.sfzh!=null and map.sfzh!=null">-->
+<!--            and ws02_01_030_01 = #{map.sfzh}-->
+<!--        </if>-->
+
+<!--        &lt;!&ndash;</where>&ndash;&gt;-->
+<!--    </select>-->
+
+<!--    <select id="selectListBySql" resultType="java.util.Map">-->
+<!--        ${sql}-->
+<!--    </select>-->
+
+<!--    <insert id="insertYyhClient" parameterType="YyhClient" useGeneratedKeys="true" keyProperty="clientid">-->
+<!--        insert into YYH_CLIENT-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="clientDatabaseUrl != null">CLIENT_DATABASE_URL,</if>-->
+<!--            <if test="clientDatabaseUsername != null">CLIENT_DATABASE_USERNAME,</if>-->
+<!--            <if test="clientDatabasePassword != null">CLIENT_DATABASE_PASSWORD,</if>-->
+<!--            <if test="clientRemark != null">CLIENT_REMARK,</if>-->
+<!--            <if test="sourceorgan != null">SOURCEORGAN,</if>-->
+<!--            <if test="sourcedomain != null">SOURCEDOMAIN,</if>-->
+<!--            <if test="targetorgan != null">TARGETORGAN,</if>-->
+<!--            <if test="targetdomain != null">TARGETDOMAIN,</if>-->
+<!--            <if test="pcrwhhqw != null">PCRWHHQW,</if>-->
+<!--            <if test="pcrwhhqwServicecode != null">PCRWHHQW_SERVICECODE,</if>-->
+<!--            <if test="dcrwhw != null">DCRWHW,</if>-->
+<!--            <if test="dcrwhwServicecode != null">DCRWHW_SERVICECODE,</if>-->
+<!--            <if test="sjscw != null">SJSCW,</if>-->
+<!--            <if test="sjscwServicecode != null">SJSCW_SERVICECODE,</if>-->
+<!--         </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="clientDatabaseUrl != null">#{clientDatabaseUrl},</if>-->
+<!--            <if test="clientDatabaseUsername != null">#{clientDatabaseUsername},</if>-->
+<!--            <if test="clientDatabasePassword != null">#{clientDatabasePassword},</if>-->
+<!--            <if test="clientRemark != null">#{clientRemark},</if>-->
+<!--            <if test="sourceorgan != null">#{sourceorgan},</if>-->
+<!--            <if test="sourcedomain != null">#{sourcedomain},</if>-->
+<!--            <if test="targetorgan != null">#{targetorgan},</if>-->
+<!--            <if test="targetdomain != null">#{targetdomain},</if>-->
+<!--            <if test="pcrwhhqw != null">#{pcrwhhqw},</if>-->
+<!--            <if test="pcrwhhqwServicecode != null">#{pcrwhhqwServicecode},</if>-->
+<!--            <if test="dcrwhw != null">#{dcrwhw},</if>-->
+<!--            <if test="dcrwhwServicecode != null">#{dcrwhwServicecode},</if>-->
+<!--            <if test="sjscw != null">#{sjscw},</if>-->
+<!--            <if test="sjscwServicecode != null">#{sjscwServicecode},</if>-->
+<!--         </trim>-->
+<!--    </insert>-->
+
+<!--    <insert id="saveErrorUpLog">-->
+<!--        insert into yyh_data_error(setcode,upnum,errnum) values(#{setcode},#{upnum},#{errnum})-->
+<!--    </insert>-->
+
+<!--    <insert id="saveRecordLog">-->
+<!--        insert into yyh_aggr_record(colrescode,setcode,tasknum,totaldatanum,singledatanum,totaltaskid,singletaskid,sn,-->
+<!--        endtaskid,begindatetime,enddatetime,uploadtime,clientid)-->
+<!--        values (#{record.COLRESCODE},#{record.SETCODE},#{record.TASKNUM},-->
+<!--        #{record.TOTALDATANUM},#{record.SINGLEDATANUM},#{record.TOTALTASKID},#{record.SINGLETASKID},#{record.SN},-->
+<!--        #{record.ENDTASKID},#{record.BEGINDATETIME},#{record.ENDDATETIME}-->
+<!--        ,#{record.UPLOADTIME},#{record.CLIENTID})-->
+
+<!--    </insert>-->
+
+<!--    <update id="updateYyhClient" parameterType="YyhClient">-->
+<!--        update YYH_CLIENT-->
+<!--        <trim prefix="SET" suffixOverrides=",">-->
+<!--            <if test="clientDatabaseUrl != null">CLIENT_DATABASE_URL = #{clientDatabaseUrl},</if>-->
+<!--            <if test="clientDatabaseUsername != null">CLIENT_DATABASE_USERNAME = #{clientDatabaseUsername},</if>-->
+<!--            <if test="clientDatabasePassword != null">CLIENT_DATABASE_PASSWORD = #{clientDatabasePassword},</if>-->
+<!--            <if test="clientRemark != null">CLIENT_REMARK = #{clientRemark},</if>-->
+<!--            <if test="sourceorgan != null">SOURCEORGAN = #{sourceorgan},</if>-->
+<!--            <if test="sourcedomain != null">SOURCEDOMAIN = #{sourcedomain},</if>-->
+<!--            <if test="targetorgan != null">TARGETORGAN = #{targetorgan},</if>-->
+<!--            <if test="targetdomain != null">TARGETDOMAIN = #{targetdomain},</if>-->
+<!--            <if test="pcrwhhqw != null">PCRWHHQW = #{pcrwhhqw},</if>-->
+<!--            <if test="pcrwhhqwServicecode != null">PCRWHHQW_SERVICECODE = #{pcrwhhqwServicecode},</if>-->
+<!--            <if test="dcrwhw != null">DCRWHW = #{dcrwhw},</if>-->
+<!--            <if test="dcrwhwServicecode != null">DCRWHW_SERVICECODE = #{dcrwhwServicecode},</if>-->
+<!--            <if test="sjscw != null">SJSCW = #{sjscw},</if>-->
+<!--            <if test="sjscwServicecode != null">SJSCW_SERVICECODE = #{sjscwServicecode},</if>-->
+<!--        </trim>-->
+<!--        where CLIENTID = #{clientid}-->
+<!--    </update>-->
+
+<!--    <update id="updateTjbgResult">-->
+<!--        update tj_pdfbg_info set certificateid = #{map.CERTIFICATEID},scbz='1',scsj = sysdate-->
+<!--        where WS01_00_018_01 = #{map.WS01_00_018_01}-->
+<!--    </update>-->
+
+<!--    <update id="updateUpdata">-->
+<!--        ${yyhUpsql}-->
+<!--    </update>-->
+
+<!--    <delete id="deleteYyhClientByClientid" parameterType="Long">-->
+<!--        delete from YYH_CLIENT where CLIENTID = #{clientid}-->
+<!--    </delete>-->
+
+<!--    <delete id="deleteYyhClientByClientids" parameterType="String">-->
+<!--        delete from YYH_CLIENT where CLIENTID in-->
+<!--        <foreach item="clientid" collection="array" open="(" separator="," close=")">-->
+<!--            #{clientid}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+<!--</mapper>-->

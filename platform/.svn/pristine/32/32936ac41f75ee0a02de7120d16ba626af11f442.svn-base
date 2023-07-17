@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsoft.system.mapper.SysDynamicSourceMapper">
+
+    <select id="dynamicReportList" resultType="Map">
+        select * from ( ${sql} ) a
+    </select>
+
+    <select id="dynamicReportList1" resultType="Map">
+        select * from ( ${map.sql} ) a
+        where a.busid = #{map.busid}
+    </select>
+
+    <select id="dynamicSqlList" resultType="Map">
+        select * from ( ${map.sql} ) a
+        where a.CYSJ &gt;= #{map.begindate} and a.CYSJ &lt; #{map.enddate}
+        <if test="map.bahm!=null and map.bahm!=''">
+            and bahm = #{map.bahm}
+        </if>
+        <if test="map.zyh!=null and map.zyh!=''">
+            and zyh = #{map.zyh}
+        </if>
+        <if test="map.jsid!=null and map.jsid!=''">
+            and "zyh" = #{map.jsid}
+        </if>
+        <if test="map.name!=null and map.name!=''">
+            and BRXM = #{map.name}
+        </if>
+        <if test="map.scshbz!=null and map.scshbz!=''">
+            and scshbz = #{map.scshbz}
+        </if>
+    </select>
+
+    <select id="dynamicSqlList12" resultType="Map">
+        select
+            CASE WHEN SCSHBZ=0 THEN '未上传' WHEN SCSHBZ=1 THEN '已上传' WHEN SCSHBZ=2 THEN '已提交' ELSE '未上传' END SCSHBZ,
+            COUNT(1) TOTAL from ( ${map.sql} ) a
+            where a.CYSJ &gt;= #{map.begindate} and a.CYSJ &lt; #{map.enddate}
+        GROUP BY SCSHBZ ORDER by SCSHBZ
+    </select>
+
+    <select id="dynamicSqlList4401" resultType="Map">
+        select * from ( ${map.sql} ) a
+        <where>
+            <if test="map.begindate!=null and map.enddate!=null">
+                a.CYSJ &gt;= #{map.begindate} and a.CYSJ &lt; #{map.enddate}
+            </if>
+            <if test="map.zyh!=null and map.zyh!=''">
+                and a."zyh" = #{map.zyh}
+            </if>
+            <if test="map.name!=null and map.name!=''">
+                BRXM = #{map.name}
+            </if>
+            <if test="map.scshbz!=null and map.scshbz!=''">
+                and scshbz = #{map.scshbz}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="dynamicSqlList_T" resultType="Object">
+        select * from ( ${map.sql} ) a
+        <where>
+            <if test="map.begindate!=null and map.enddate!=null">
+                a.CYSJ &gt;= #{map.begindate} and a.CYSJ &lt; #{map.enddate}
+            </if>
+            <if test="map.zyh!=null and map.zyh!=''">
+                and a."zyh" = #{map.zyh}
+            </if>
+            <if test="map.name!=null and map.name!=''">
+                BRXM = #{map.name}
+            </if>
+            <if test="map.scshbz!=null and map.scshbz!=''">
+                and scshbz = #{map.scshbz}
+            </if>
+        </where>
+    </select>
+
+    <select id="dynamicSqlList1" resultType="Map">
+        select * from ${map.sql}
+        where resid is not null and scshbz = '1' and CYSJ &gt;= #{map.begindate} and CYSJ &lt; #{map.enddate}
+    </select>
+
+    <select id="dynamicSqlList2" resultType="Map">
+        select * from (${map.sql}) a
+<!--        where a.setl_begn_date &gt;= #{map.begindate} and a.setl_begn_date &lt; #{map.enddate}-->
+    </select>
+</mapper>

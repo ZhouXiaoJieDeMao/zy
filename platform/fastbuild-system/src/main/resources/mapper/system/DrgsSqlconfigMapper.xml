@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsoft.system.mapper.DrgsSqlconfigMapper">
+    
+    <resultMap type="DrgsSqlconfig" id="DrgsSqlconfigResult">
+        <result property="id"    column="id"    />
+        <result property="serviceid"    column="SERVICEID"    />
+        <result property="sqltype"    column="SQLTYPE"    />
+        <result property="sqlcontent"    column="SQLCONTENT"    />
+        <result property="relationcolumn"    column="RELATIONCOLUMN"    />
+        <result property="sfqy"    column="SFQY"    />
+        <result property="dbid"    column="DBID"    />
+        <result property="remark"    column="REMARK"    />
+    </resultMap>
+
+    <sql id="selectDrgsSqlconfigVo">
+        select id, SERVICEID, SQLTYPE, SQLCONTENT, RELATIONCOLUMN, SFQY, DBID, REMARK from drgs_sqlconfig
+    </sql>
+
+    <select id="selectDrgsSqlconfigList" parameterType="DrgsSqlconfig" resultMap="DrgsSqlconfigResult">
+        <include refid="selectDrgsSqlconfigVo"/>
+        <where>  
+            <if test="serviceid != null  and serviceid != ''"> and SERVICEID = #{serviceid}</if>
+            <if test="sqltype != null  and sqltype != ''"> and SQLTYPE = #{sqltype}</if>
+            <if test="sqlcontent != null  and sqlcontent != ''"> and SQLCONTENT = #{sqlcontent}</if>
+            <if test="relationcolumn != null  and relationcolumn != ''"> and RELATIONCOLUMN = #{relationcolumn}</if>
+            <if test="sfqy != null  and sfqy != ''"> and SFQY = #{sfqy}</if>
+            <if test="dbid != null  and dbid != ''"> and DBID = #{dbid}</if>
+            <if test="remark != null  and remark != ''"> and REMARK = #{remark}</if>
+        </where>
+    </select>
+    
+    <select id="selectDrgsSqlconfigById" parameterType="Long" resultMap="DrgsSqlconfigResult">
+        <include refid="selectDrgsSqlconfigVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectDrgsSqlconfigByServiceId"  resultMap="DrgsSqlconfigResult">
+        <include refid="selectDrgsSqlconfigVo"/>
+        <where>
+            <if test="serviceId!=null and serviceId!=''">
+                SERVICEID = #{serviceId}
+            </if>
+            <if test="sqlType!=null and sqlType!=''">
+                and SQLTYPE = #{sqlType}
+            </if>
+        </where>
+
+    </select>
+        
+    <insert id="insertDrgsSqlconfig" parameterType="DrgsSqlconfig" useGeneratedKeys="true" keyProperty="id">
+        insert into drgs_sqlconfig
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="serviceid != null and serviceid != ''">SERVICEID,</if>
+            <if test="sqltype != null and sqltype != ''">SQLTYPE,</if>
+            <if test="sqlcontent != null and sqlcontent != ''">SQLCONTENT,</if>
+            <if test="relationcolumn != null">RELATIONCOLUMN,</if>
+            <if test="sfqy != null and sfqy != ''">SFQY,</if>
+            <if test="dbid != null">DBID,</if>
+            <if test="remark != null">REMARK,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="serviceid != null and serviceid != ''">#{serviceid},</if>
+            <if test="sqltype != null and sqltype != ''">#{sqltype},</if>
+            <if test="sqlcontent != null and sqlcontent != ''">#{sqlcontent},</if>
+            <if test="relationcolumn != null">#{relationcolumn},</if>
+            <if test="sfqy != null and sfqy != ''">#{sfqy},</if>
+            <if test="dbid != null">#{dbid},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDrgsSqlconfig" parameterType="DrgsSqlconfig">
+        update drgs_sqlconfig
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="serviceid != null and serviceid != ''">SERVICEID = #{serviceid},</if>
+            <if test="sqltype != null and sqltype != ''">SQLTYPE = #{sqltype},</if>
+            <if test="sqlcontent != null and sqlcontent != ''">SQLCONTENT = #{sqlcontent},</if>
+            <if test="relationcolumn != null">RELATIONCOLUMN = #{relationcolumn},</if>
+            <if test="sfqy != null and sfqy != ''">SFQY = #{sfqy},</if>
+            <if test="dbid != null">DBID = #{dbid},</if>
+            <if test="remark != null">REMARK = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDrgsSqlconfigById" parameterType="Long">
+        delete from drgs_sqlconfig where id = #{id}
+    </delete>
+
+    <delete id="deleteDrgsSqlconfigByIds" parameterType="String">
+        delete from drgs_sqlconfig where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

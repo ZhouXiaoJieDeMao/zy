@@ -1,0 +1,125 @@
+10:47:05.927 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 1492 (started by zhaocw in D:\work\workspace\ideawork\platform)
+10:47:05.931 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+10:47:06.669 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+10:47:06.669 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:47:06.679 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+10:47:06.701 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:47:06.733 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+10:47:06.745 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,972] - {dataSource-2} inited
+10:47:07.337 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+10:47:07.337 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:47:07.337 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+10:47:07.337 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+10:47:07.337 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+10:47:07.337 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+10:47:07.337 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+10:47:07.337 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@34d4e5fe
+10:47:07.604 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+10:47:07.783 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+10:47:07.786 [restartedMain] INFO  c.b.FastbuildApplication - [logStarted,61] - Started FastbuildApplication in 1.926 seconds (JVM running for 2030.9)
+10:47:20.845 [Thread-30] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+10:47:21.095 [Thread-30] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+10:47:21.095 [Thread-30] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+10:47:21.095 [Thread-30] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+10:47:21.104 [Thread-30] INFO  c.a.d.p.DruidDataSource - [close,2051] - {dataSource-2} closing ...
+10:47:21.104 [Thread-30] INFO  c.a.d.p.DruidDataSource - [close,2124] - {dataSource-2} closed
+10:47:21.549 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 1492 (started by zhaocw in D:\work\workspace\ideawork\platform)
+10:47:21.549 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+10:47:22.062 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+10:47:22.062 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:47:22.062 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+10:47:22.083 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:47:22.126 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+10:47:22.137 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,972] - {dataSource-3} inited
+10:47:22.170 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2051] - {dataSource-3} closing ...
+10:47:22.170 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2124] - {dataSource-3} closed
+10:47:22.170 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+10:47:23.668 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 1492 (started by zhaocw in D:\work\workspace\ideawork\platform)
+10:47:23.668 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+10:47:24.203 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+10:47:24.203 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:47:24.203 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+10:47:24.235 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:47:24.284 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+10:47:24.284 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,972] - {dataSource-4} inited
+10:47:24.301 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2051] - {dataSource-4} closing ...
+10:47:24.301 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2124] - {dataSource-4} closed
+10:47:24.312 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+10:47:26.229 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 1492 (started by zhaocw in D:\work\workspace\ideawork\platform)
+10:47:26.229 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+10:47:26.971 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+10:47:26.971 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:47:26.971 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+10:47:26.991 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:47:26.991 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+15:19:45.509 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 14604 (started by zhaocw in D:\work\workspace\ideawork\platform)
+15:19:45.509 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+15:19:46.108 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+15:19:46.108 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+15:19:46.108 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+15:19:46.123 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+15:19:46.156 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+15:19:46.164 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,972] - {dataSource-2} inited
+15:19:46.737 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+15:19:46.738 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+15:19:46.738 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+15:19:46.739 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+15:19:46.739 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+15:19:46.739 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+15:19:46.739 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+15:19:46.739 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@380d3d68
+15:19:46.820 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+15:19:46.936 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+15:19:46.943 [restartedMain] INFO  c.b.FastbuildApplication - [logStarted,61] - Started FastbuildApplication in 1.49 seconds (JVM running for 2092.226)
+15:19:46.952 [amp_hos_pushMsg-1] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:47.949 [amp_hos_pushMsg-2] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:48.947 [amp_hos_pushMsg-4] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:49.958 [amp_hos_pushMsg-5] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:50.949 [amp_hos_pushMsg-5] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:51.943 [amp_hos_pushMsg-1] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:52.956 [amp_hos_pushMsg-7] INFO  c.b.z.b.g.s.GjybSecretServiceImpl - [pushData,66] - ----等待数据库配置正确----
+15:19:53.650 [Thread-30] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+15:19:53.882 [Thread-30] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+15:19:53.882 [Thread-30] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+15:19:53.882 [Thread-30] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+15:19:53.890 [Thread-30] INFO  c.a.d.p.DruidDataSource - [close,2051] - {dataSource-2} closing ...
+15:19:53.892 [Thread-30] INFO  c.a.d.p.DruidDataSource - [close,2124] - {dataSource-2} closed
+15:19:54.344 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 14604 (started by zhaocw in D:\work\workspace\ideawork\platform)
+15:19:54.344 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+15:19:54.919 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+15:19:54.919 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+15:19:54.919 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+15:19:54.934 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+15:19:54.971 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,55] - Init DruidDataSource
+15:19:54.979 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,972] - {dataSource-3} inited
+15:19:54.996 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2051] - {dataSource-3} closing ...
+15:19:54.997 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2124] - {dataSource-3} closed
+15:19:54.999 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+15:19:56.512 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 14604 (started by zhaocw in D:\work\workspace\ideawork\platform)
+15:19:56.512 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+15:19:57.191 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+15:19:57.191 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+15:19:57.191 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+15:19:57.208 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+15:19:57.212 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+15:19:58.739 [restartedMain] INFO  c.b.FastbuildApplication - [logStarting,55] - Starting FastbuildApplication using Java 1.8.0_251 on zcw with PID 14604 (started by zhaocw in D:\work\workspace\ideawork\platform)
+15:19:58.740 [restartedMain] INFO  c.b.FastbuildApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "sqlite"
+15:19:59.416 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+15:19:59.416 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+15:19:59.416 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.63]
+15:19:59.431 [restartedMain] INFO  o.a.c.c.C.[.[.[/MedIntface] - [log,173] - Initializing Spring embedded WebApplicationContext
+15:19:59.433 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]

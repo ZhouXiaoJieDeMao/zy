@@ -1,0 +1,144 @@
+# 数据源配置
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            # 主库数据源
+#            master:
+#                url: jdbc:mysql://localhost:3306/hospital_vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+#                username: root
+#                password:
+#                driverClassName: com.mysql.cj.jdbc.Driver
+            master:
+#                url: jdbc:mysql://111.229.110.227:33065/hospital_vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+#                username: root
+#                password: 123456
+                url: jdbc:mysql://192.26.6.86:3306/hospital_vue_data_upload?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+                username: root
+                password: Lawjj@2023
+                driverClassName: com.mysql.cj.jdbc.Driver
+            # 从库数据源
+            slave:
+                # 从数据源开关/默认关闭
+                enabled: true
+#                url: jdbc:oracle:thin:@192.46.32.135:1521/gswsj
+#                username: bshis
+#                password: bshis
+                url: jdbc:oracle:thin:@192.26.6.112:1521/hxdb
+                username: CRB
+                password: CRB
+#                url: jdbc:oracle:thin:@10.66.66.15:1521/ORCL
+#                username: PORTAL56_his
+#                password: bsoft
+                driverClassName: oracle.jdbc.driver.OracleDriver
+            # 从库数据源
+            three:
+                # 从数据源开关/默认关闭
+                enabled: true
+#                url: jdbc:oracle:thin:@81.69.200.183:1521:orcl
+#                username: la_test
+#                password: 123456
+#                driverClassName: oracle.jdbc.driver.OracleDriver
+                # BDB数据库连接
+                driverClassName: cn.com.bsoft.bdb3.jdbc.BdbDriver
+                url: jdbc:bdb://192.26.6.81:5433,192.26.6.82:5433,192.26.6.83:5433,192.26.6.84:5433,192.26.6.85:5433/bdb?loadBalanceHosts=true
+                username: bdb_admin
+                password: bsoft1234
+                validationQuery: SELECT 1
+#                url: jdbc:oracle:thin:@10.66.66.15:1521/ORCL
+#                username: PORTAL56_his
+#                password: bsoft
+#                driverClassName: oracle.jdbc.driver.OracleDriver
+            four:
+                # 从数据源开关/默认关闭
+                enabled: true
+                driverClassName: oracle.jdbc.driver.OracleDriver
+                url: jdbc:oracle:thin:@192.26.6.58:1521/orcl
+                username: yyhaggr
+                password: bsoftaggr
+#                url: jdbc:oracle:thin:@10.66.66.15:1521/ORCL
+#                username: PORTAL56_his
+#                password: bsoft
+#                driverClassName: oracle.jdbc.driver.OracleDriver
+
+            # 初始连接数
+            initialSize: 5
+            # 最小连接池数量
+            minIdle: 10
+            # 最大连接池数量
+            maxActive: 20
+            # 配置获取连接等待超时的时间
+            maxWait: 60000
+            # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            timeBetweenEvictionRunsMillis: 60000
+            # 配置一个连接在池中最小生存的时间，单位是毫秒
+            minEvictableIdleTimeMillis: 300000
+            # 配置一个连接在池中最大生存的时间，单位是毫秒
+            maxEvictableIdleTimeMillis: 900000
+            # 配置检测连接是否有效
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            webStatFilter:
+                enabled: true
+            statViewServlet:
+                enabled: true
+                # 设置白名单，不填则允许所有访问
+                allow:
+                url-pattern: /druid/*
+                # 控制台管理用户名和密码
+                login-username: fastbuild
+                login-password: 123456
+            filter:
+                stat:
+                    enabled: true
+                    # 慢SQL记录
+                    log-slow-sql: true
+                    slow-sql-millis: 1000
+                    merge-sql: true
+                wall:
+                    config:
+                        multi-statement-allow: true
+
+
+wsdl:
+  batchService:
+    url: http://192.26.6.19:8889/SJCJHQRWHJKL/PCRWHHQL?wsdl
+    namespace: http://collectdeclareservice.webservice.entrance.si.neusoft.com/
+    serviceName: collectDeclareService
+  taskService:
+    url: http://192.26.6.19:8889/SJCJHQRWHJKL/HQDCRWHL?wsdl
+    namespace: http://collectdeclareservice.webservice.entrance.si.neusoft.com/
+    serviceName: collectDeclareService
+  uploadService:
+    url: http://192.26.6.19:8889/SJCJSJSCJKL/SJSCL?wsdl
+    namespace: http://webservice.entrance.si.neusoft.com/
+    serviceName: carryXmlToDbService
+  gatherResult:
+    namespace: http://service.ws.hcn.bsoft.com.cn/
+    serviceName: gatherResultReceptionService
+  zfService:
+    url: http://192.26.6.19:8889/SJZFJK/SJZFFW?wsdl
+    #作废servicecode
+    zfServiceCode: FJGHSJSCCJ:SJZFFW
+    serviceName: ServiceImpl
+    namespace: http://hz.neusoft.com
+
+quartz:
+  clrcDownload:
+    #测试地址
+#    url: http://115.236.162.166:18081/latalentsys/out/queryCUsers
+    #正式地址
+    url: https://laqcm.linan.gov.cn:8443/latalent/boot/out/queryCUsers
+    merchant: MER_YLTJ
+    #私钥测试
+#    privateKey: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKeRBCx9jB6XcXrZFhg/GPhf5Mfg31RsLVlGpQIx4T/3ZFl+DzCq1CQsk/Xpa415S6P6LEDqYBZDxc7dbs7bnNXRDTtE2g/W6eFw620ZKtOy8i0/IvAe+b/DlMLJVD8gav294kCIbYmXDoRpN4E7O6XWiu/04Nm+A6uCCUOg6gtfAgMBAAECgYBa4Iwp8OEISkwSOx//gGDze1ZhjLSyXYTusSCWoyStg2daHcLxOwSYpdCNAs4AyTLbuLc9cZ8xFAp4maEZ8QMKFpCYDxOtR5dbPENSVmTqoKyVh1eC7xbOrIfnKlYtEk8xcmsgSxRA/sFzQ/1DXjyS8mKBB77Lz3ARNNWFyxOCMQJBANBq/kMBE9l6lV92WcBXcMjRv6r6T1GH+9/QlNEZa7Dx5oJ7QksnpUsN3H2haLhomIbajtqYKjhimw5EsNBvavkCQQDN0nRwu48zacnXfLwY7/VugC1chM3miGAs3jRdILTg9ion6lG1SPlUB7qK+Yu/hUrBqKXimjFcTUW+mq+p16cXAkAqsL/EGcRnF6ThGOzpaP/BIrWP4BW/LYt6HM9exUY5yFLfB0BdBJHm/b/cO+OnYkVb2gjI3cJIKmp4Ubml+CyBAkAQSj7jCUU9OXs7LekpRBy1wTlV4ED3pQWPp4qXcFZAk9skS5xp77ukFfSCuVuBLgiLqVBvzepoNsl1W4LZu3LDAkBWxxyLZ+u9GtxVaqjOBD99ein7dznJb+qwheHBqNdmFlUJDZVWs+0ulbEraVxShlFCKiISjh8mX3na45+Jb/ww
+#    公钥测试
+#    publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnkQQsfYwel3F62RYYPxj4X+TH4N9UbC1ZRqUCMeE/92RZfg8wqtQkLJP16WuNeUuj+ixA6mAWQ8XO3W7O25zV0Q07RNoP1unhcOttGSrTsvItPyLwHvm/w5TCyVQ/IGr9veJAiG2Jlw6EaTeBOzul1orv9ODZvgOrgglDoOoLXwIDAQAB
+    #私钥正式
+    privateKey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAK6tlO0tPiRi9ReozIoqi+SfysMZaBDN5w6L2T3KYWnoUJVnl/QwL2p6arStbt5HSIFj3CrtB/q2co5BBIziQWIHFEwcoAjA7gM6J4mqftgB9TfHtcwaKgoQ8l7B4dKlZX8nH2O6C9jNl+EEpd4Ej7u+q6g5y8bSusjo4+ScRlu9AgMBAAECgYBkg94+3Nn1djwy8R9CIll9pbW3rtcDVHixFihcNij4GIbGcmYuTcv7KZZdga9amQpP6na2/M6qpnIlCaTkrQ2Rt0coresrra4D0LasP/0PplkS5N+oegrPQeizjyx4nWuhIxQJn8+J4OqqQ3XkyLKz/iFoqn5fRGOh1OnE37KiwQJBAOEtrXS+0ab6QPpa/R6P63mAK5c4NuUVbQEU3jORq93yUbhgb6nyKAEBiRxkk9HPQiwQ63qqDxI5R1huLYBnYKMCQQDGllr0pItTIBAGRZBpVM4ZLbwn5JDMB6AgGmWRBzgy1sj5hIrKhqwEYiIoHkK2qlcjBciBLLriDCmHsSsmyjgfAkB/b/x0z/GTEJpplcke3NClaLZC1Nusdp3EOO0wPkcISzWYpWtMwPGG8DmKyhkmaqfGjKTYPRpec/A+ycwSmW8FAkEAmVHgK10WjDkG5jCzC/+Dl4Dt8cbP3BZPFDoNDGmMhAO76pjgJvjOuhuhz2N9klX1LH78jG6iYn+NWMv6Stp5dQJBANDUK37Lf7X0jPQ05cGhaJbMylqJz9LjoU/+JeqR+my9WW5OuJEfxEHHJjY6AXydzqgIPk8qmvKKqOMlZ4sdfLI=
+    #公钥正式
+    publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCurZTtLT4kYvUXqMyKKovkn8rDGWgQzecOi9k9ymFp6FCVZ5f0MC9qemq0rW7eR0iBY9wq7Qf6tnKOQQSM4kFiBxRMHKAIwO4DOieJqn7YAfU3x7XMGioKEPJeweHSpWV/Jx9jugvYzZfhBKXeBI+7vquoOcvG0rrI6OPknEZbvQIDAQAB
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsoft.system.mapper.TestMapper">
+
+    <select id="test" resultType="Map">
+        SELECT * FROM pms_ps_prog WHERE ID_PROCESS  = '0000000000000006'
+    </select>
+
+<!--    <select id="test" resultType="Map" databaseId="mysql">-->
+<!--        select* from hospital_vue.sys_user where user_id = '1'-->
+<!--    </select>-->
+</mapper>

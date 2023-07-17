@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsoft.system.mapper.YyhDetailsDataMapper">
+
+<!--体检常规报告-->
+    <select id="getTjBgjlData" resultType="com.bsoft.system.domain.yyh.Entity.TjBgjl">
+
+        select
+
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_018_01,
+        CT02_01_018_01,
+        WS02_01_005_01_01,
+        WS02_01_031_01,
+        CT02_01_031_01,
+        WS02_01_030_01,
+        WS02_01_026_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_018_01,
+        WS99_99_999_12,
+        WS01_00_008_01,
+        WS06_00_964_01,
+        WS02_01_039_031,
+        WS04_10_905_01,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS02_01_010_01,
+        WS99_99_999_10,
+        CT99_99_999_01,
+        WS08_10_007_01,
+        WS99_99_999_11,
+        WS06_00_926_01,
+        WS99_99_241_654,
+        WS99_99_241_655,
+        WS99_99_241_656,
+        WS99_99_241_658,
+        WS99_99_241_659,
+        WS06_00_901_01
+
+        from tj_bgjl_1
+        where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and   (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh}) </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+
+    </select>
+
+
+<!--    体检常规检查-->
+    <select id="getTjCgjcData" resultType="com.bsoft.system.domain.yyh.Entity.TjCgjc">
+        select
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_005_01_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_018_01,
+        WS01_00_008_01,
+        WS04_01_902_01,
+        CT04_01_902_01,
+        WS04_10_900_02,
+        CT04_10_900_02,
+        WS99_99_902_103,
+        CT99_99_902_103,
+        WS05_10_072_02,
+        WS05_10_072_03,
+        WS05_10_072_01,
+        WS04_30_016_01,
+        WS04_50_902_01,
+        WS04_10_903_01,
+        WS04_30_017_01,
+        WS04_10_932_01,
+        WS06_00_018_11,
+        WS02_01_039_117,
+        WS08_10_025_19,
+        CT08_10_025_19,
+        WS99_99_902_08,
+        CT99_99_902_08,
+        CT08_01_025_28,
+        WS08_01_025_28,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS04_10_905_01,
+        WS06_00_901_01
+
+        from tj_cgjc_1
+        where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh})   </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+
+
+    </select>
+
+<!--    体检辅助检查-->
+    <select id="getTjFzjcData" resultType="com.bsoft.system.domain.yyh.Entity.TjFzjc">
+
+
+        select
+
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_005_01_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_008_01,
+        WS01_00_018_01,
+        WS01_00_900_02,
+        WS01_00_907_01,
+        WS04_30_018_01,
+        CT04_30_018_01,
+        WS04_30_019_01,
+        WS04_30_020_01,
+        WS99_99_902_103,
+        CT99_99_902_103,
+        WS04_30_009_05,
+        WS06_00_018_11,
+        WS04_30_017_01,
+        WS04_10_932_01,
+        WS02_01_039_117,
+        WS08_10_025_19,
+        CT08_10_025_19,
+        WS99_99_902_08,
+        CT99_99_902_08,
+        CT08_01_025_28,
+        WS08_01_025_28,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS04_10_905_01,
+        WS06_00_901_01
+
+        from tj_fzjc_1 where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh}) </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+
+    </select>
+
+<!--    体检实验室检验-->
+    <select id="getTjSysjyData" resultType="com.bsoft.system.domain.yyh.Entity.TjSysjy">
+        select
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_005_01_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_008_01,
+        WS01_00_018_01,
+        WS01_00_900_02,
+        WS04_10_932_01,
+        WS02_01_039_065,
+        WS06_00_925_01,
+        WS02_01_039_057,
+        WS06_00_927_01,
+        WS06_00_926_01,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS04_10_905_01,
+        WS99_99_241_657,
+        WS06_00_901_01
+
+        from tj_sysjy_1 where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh})  </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+
+    </select>
+
+<!--    体检实验室检验明细-->
+    <select id="getTjSysjycgbgData" resultType="com.bsoft.system.domain.yyh.Entity.TjSysjycgbg">
+        select
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_005_01_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_008_01,
+        WS01_00_018_01,
+        WS01_00_907_01,
+        WS04_30_019_01,
+        WS04_30_020_01,
+        WS99_99_902_103,
+        CT99_99_902_103,
+        WS04_30_009_03,
+        WS04_30_016_01,
+        WS04_50_902_01,
+        WS04_50_913_01,
+        WS04_10_903_01,
+        WS04_30_017_01,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS04_10_905_01,
+        WS06_00_901_01
+
+        from tj_sysjycgbg_1 where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh})  </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+
+
+    </select>
+
+<!--    体检异常摘要信息-->
+    <select id="getTjYczyxxData" resultType="com.bsoft.system.domain.yyh.Entity.TjYczyxx">
+
+        select
+        WS02_01_039_001,
+        WS02_01_040_01,
+        CT02_01_040_01,
+        WS02_01_005_01_01,
+        WS01_00_009_01,
+        WS01_00_021_01,
+        WS99_99_903_58,
+        WS01_00_018_01,
+        WS01_00_008_01,
+        WS04_30_913_01,
+        WS02_01_922_01,
+        WS02_01_922_02,
+        WS06_00_066_02,
+        WS08_10_052_18,
+        CT08_10_052_18,
+        WS04_10_905_01,
+        WS06_00_901_01
+
+        from tj_yczyxx_1 where 1=1
+        <if test="bgdbh != null and bgdbh != ''"> and (ws01_00_008_01 =  #{bgdbh} or ws01_00_018_01 =  #{bgdbh})  </if>
+        <if test="jgdm != null and jgdm != ''" >and ws08_10_052_18 = #{jgdm} </if>
+    </select>
+
+
+</mapper>
